@@ -1,0 +1,21 @@
+
+<div *ngIf="employee !==undefined">
+  <h1>Update Employee Information</h1>
+  <form #updateForm="ngForm" (ngSubmit)="updateEmployee(updateForm.value)">
+    <h2>Employee ID: {{employee.id}} information</h2>
+    <label>Employee's First Name</label>
+    <input type="text" name="firstName" required  #firstName="ngModel" [(ngModel)]="employee.firstName"><br><br>
+
+    <label>Employee's Last Name</label>
+    <input type="text" name="lastName" required  #lastName="ngModel" [(ngModel)]="employee.lastName"><br><br>
+
+    <label>Salary</label>
+    <input type="number" name="salary" required  #salary="ngModel" [(ngModel)]="employee.salary"><br><br>
+
+    <input type="submit" value="Update">
+
+  </form>
+</div>
+
+<br>
+<a routerLink="/">Return home</a>

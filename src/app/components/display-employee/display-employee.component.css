@@ -1,0 +1,23 @@
+th{
+  text-align:start;
+  border-right:1px solid black;
+  border-bottom:1px solid black;
+}
+td{
+  border-right:1px solid black;
+  border-bottom:1px solid black;
+  min-width: 120px;
+}
+
+p{
+  color: red;
+  margin-bottom: 0;
+}
+
+.centered{
+  text-align: center;
+}
+
+.greyed{
+  color: rgba(128, 128, 128, 0.67);
+}

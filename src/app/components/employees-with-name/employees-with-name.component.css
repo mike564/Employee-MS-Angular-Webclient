@@ -1,0 +1,18 @@
+th{
+  text-align:start;
+  border-right:1px solid black;
+  border-bottom:1px solid black;
+}
+td{
+  border-right:1px solid black;
+  border-bottom:1px solid black;
+  min-width: 120px;
+}
+
+div>p{
+  color: red;
+}
+
+.centered{
+  text-align: center;
+}

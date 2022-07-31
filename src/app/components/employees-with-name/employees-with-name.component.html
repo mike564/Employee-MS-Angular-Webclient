@@ -1,0 +1,35 @@
+<h1>Search Results for: "{{firstName}} {{lastName}}"</h1>
+<div *ngIf="employees.length == 0">
+  <h4>No employees found</h4>
+</div>
+
+<div *ngIf="employees.length > 0">
+  <table>
+    <tr>
+      <th>EMPLOYEE ID</th>
+      <th>FIRST NAME</th>
+      <th>LAST NAME</th>
+      <th>SALARY</th>
+      <th>STATE</th>
+      <th>COUNTRY</th>
+      <th>REMOVE EMPLOYEE</th>
+      <th>UPDATE EMPLOYEE</th>
+    </tr>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.id}}</td>
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.salary | currency:"USD"}}</td>
+      <td>{{employee.state}}</td>
+      <td>{{employee.country}}</td>
+      <td class="centered">
+        <button (click)="removeEmployee(employee.id)">Remove</button>
+      </td>
+      <td class="centered">
+        <a [routerLink]="['/update-employee',employee.id]">Update</a>
+      </td>
+    </tr>
+  </table>
+</div>
+<div><p *ngIf="removedEmployee != null">{{removedEmployee}} has been removed</p></div>
+<a routerLink="/">Return home</a>

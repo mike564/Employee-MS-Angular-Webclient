@@ -1,0 +1,47 @@
+<h1>Add Employee to System</h1>
+	<form #addEmployeeForm="ngForm" (ngSubmit)="addEmployee(addEmployeeForm.value); addEmployeeForm.reset()">
+		<label>Employee's First Name</label>
+		<input type="text" name="firstName" required pattern="[a-zA-Z]+" #firstName="ngModel" ngModel [ngClass]="{'invalid':firstName.invalid && firstName.touched}">
+    <span *ngIf="firstName.invalid && firstName.touched">
+      <span *ngIf="firstName.errors?.['required']"> First name is required</span>
+      <span *ngIf="firstName.errors?.['pattern']"> First name is invalid. Only letters are allowed.</span>
+    </span>
+    <br><br>
+
+		<label>Employee's Last Name</label>
+		<input type="text" name="lastName" required pattern="[a-zA-Z]+" #lastName="ngModel" ngModel [ngClass]="{'invalid':lastName.invalid && lastName.touched}">
+    <span *ngIf="lastName.invalid && lastName.touched">
+      <span *ngIf="lastName.errors?.['required']"> Last name is required</span>
+      <span *ngIf="lastName.errors?.['pattern']"> First name is invalid. Only letters are allowed.</span>
+    </span>
+    <br><br>
+
+		<label>Salary</label>
+		<input type="number" name="salary" required min="0" #salary="ngModel" ngModel [ngClass]="{'invalid':salary.invalid && salary.touched}">
+    <span *ngIf="salary.invalid && salary.touched">
+      <span *ngIf="salary.errors?.['required']"> Salary is required</span>
+      <span *ngIf="salary.errors?.['min']"> Salary cannot be less than 0</span>
+    </span>
+    <br><br>
+
+		<label>State</label>
+		<input type="text" name="state" required pattern="[a-zA-Z]+" #state="ngModel" ngModel [ngClass]="{'invalid':state.invalid && state.touched}">
+    <span *ngIf="state.invalid && state.touched">
+      <span *ngIf="state.errors?.['required']"> State is required</span>
+      <span *ngIf="state.errors?.['pattern']"> State is invalid. Only letters are allowed</span>
+    </span>
+    <br><br>
+
+		<label>Country</label>
+		<input type="text" name="country" required pattern="[a-zA-Z]+" #country="ngModel" ngModel [ngClass]="{'invalid':country.invalid && country.touched}">
+    <span *ngIf="country.invalid && country.touched">
+      <span *ngIf="country.errors?.['required']"> Country is required</span>
+      <span *ngIf="country.errors?.['pattern']"> Country is invalid. Only letters are allowed</span>
+    </span>
+    <br><br>
+
+		<input type="submit" value="Add Employee" [disabled]="addEmployeeForm.invalid">
+    <span *ngIf="submitted"> Employee: {{submittedEmployee}} has been added to the database</span>
+	</form>
+  <br><br>
+  <a routerLink="/">Return home</a>

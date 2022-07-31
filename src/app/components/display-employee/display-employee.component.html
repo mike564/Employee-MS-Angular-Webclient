@@ -1,0 +1,38 @@
+<div *ngIf="employee==null">
+  <h2>404 - Employee of ID: {{pathVariableId}} not found</h2>
+</div>
+<div *ngIf="employee!=null">
+  <h1>Employee Information</h1>
+  <table>
+    <tr>
+      <th>EMPLOYEE ID</th>
+      <th>FIRST NAME</th>
+      <th>LAST NAME</th>
+      <th>SALARY</th>
+      <th>STATE</th>
+      <th>COUNTRY</th>
+      <th>REMOVE EMPLOYEE</th>
+      <th>UPDATE EMPLOYEE</th>
+    </tr>
+    <tr>
+      <td>{{employee.id}}</td>
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.salary | currency:"USD"}}</td>
+      <td>{{employee.state}}</td>
+      <td>{{employee.country}}</td>
+      <td class="centered">
+        <button (click)="removeEmployee(employee.id)" [disabled]="isEmployeeDeleted==true">Remove</button>
+      </td>
+      <td class="centered">
+        <a *ngIf="isEmployeeDeleted==false" [routerLink]="['/update-employee',employee.id]" >Update</a>
+        <span class="greyed" *ngIf="isEmployeeDeleted==true">Update</span>
+      </td>
+    </tr>
+  </table>
+  <p *ngIf="isEmployeeDeleted==true">Employee has been removed</p>
+</div>
+<br><br>
+<a routerLink="/display-employees">Show all employees</a>
+<br><br>
+<a routerLink="/">Return home</a>

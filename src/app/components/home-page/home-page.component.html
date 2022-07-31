@@ -1,0 +1,20 @@
+<h1>Employee Management System</h1>
+<a routerLink="/add-employee">Add Employee</a><br><br>
+<a routerLink="/display-employees">Show and Manage Employees</a><br><br>
+
+<form #findEmployeeByIdForm="ngForm" (ngSubmit)="findEmployee(findEmployeeByIdForm.value)" ngNativeValidate>
+  <label>Find employee by ID:</label>
+  <input type="number" name="id" required #id="ngModel" ngModel min="0">
+  <input type="submit" value="Find Employee">
+</form>
+<br><br>
+
+<form #findEmployeeByNameForm="ngForm" (ngSubmit)="findEmployeesByName(findEmployeeByNameForm.value)" ngNativeValidate>
+  <label>Search for employees by name</label><br>
+  <input type="text" name="firstName" required placeholder="First name" #firstName="ngModel" ngModel>
+  <label>|</label>
+  <input type="text" name="lastName" required placeholder="Last name" #lastName="ngModel" ngModel>
+  <input type="submit" value="Find Employee(s)">
+</form>
+
+
